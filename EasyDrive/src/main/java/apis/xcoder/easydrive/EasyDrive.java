@@ -229,7 +229,26 @@ public class EasyDrive {
         });
     }
 
+    /**
+     * Gets the size of the file with the given id.
+     * @param id The file id
+     * @return Call with the file size
+     */
+    public AsyncTask<Long> getFileSize(String id) {
+        return AsyncTask.callAsync(() -> drive.files().get(id).setFields("size").execute().getSize());
+    }
 
+    /**
+     * Gets the name of the file with the given name and folder id.
+     * @param id The file id
+     * @return Call with the file name
+     */
+    public AsyncTask<String> getName(String id) {
+        return AsyncTask.callAsync(() -> drive.files().get(id).setFields("name").execute().getName());
+    }
+    
+    
+  
     /**
      * Interface for tracking the download/upload progress
      */
