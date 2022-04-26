@@ -1,7 +1,6 @@
 
 # EasyDrive ~ Google drive API made easy :-)
 <p align="left">
-  <a href="#"><img alt="Version" src="https://img.shields.io/badge/Version-1.1-green"></a>
   <a href="https://www.instagram.com/x__coder__x/"><img alt="Instagram - x__coder__" src="https://img.shields.io/badge/Instagram-x____coder____x-lightgrey"></a>
   <a href="#"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ErrorxCode/OTP-Verification-Api?style=social"></a>
   </p>
@@ -10,7 +9,6 @@
 The official java client for google drive API is hard of very poor design.
 There is a need for a wrapper and here it is. This library provides you the high-level
 abstraction to access the API. just a simple method call with only the required argument.
-
 ![easydrive](https://developers.google.com/workspace/images/banners/drive_856.png)
 
 
@@ -41,9 +39,10 @@ Add the dependency, in module build. Gradle
 
 ```groovy
 	dependencies {
-	    implementation 'com.github.ErrorxCode:EasyDrive:Tag'
+	    implementation 'com.github.ErrorxCode:EasyDrive:1.2'
 	}
 ```
+[![](https://jitpack.io/v/ErrorxCode/EasyDrive.svg)](https://jitpack.io/#ErrorxCode/EasyDrive)
 
 #### For maven
 Declaring jitpack repository
@@ -91,7 +90,7 @@ You can upload a file to drive using 2 ways. Either directly with `File` or with
 
 **Example**:
 ```java
-drive.uploadFile(file,null, new ProgressListener() {
+drive.uploadFile(filename,inputStream,null, new ProgressListener() {
     @Override
     public void onProgress(int percentage) {
         
@@ -108,7 +107,7 @@ drive.uploadFile(file,null, new ProgressListener() {
     }
 });
 ```
-Here, the *2nd argument* is the folder id in which you want to upload the file.
+Here, the *3nd argument* is the folder id in which you want to upload the file.
 `null` means in the root.
 
 
