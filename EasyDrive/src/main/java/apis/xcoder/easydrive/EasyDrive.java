@@ -61,6 +61,7 @@ public class EasyDrive {
             public void initialize(HttpRequest request) throws IOException {
                 credential.initialize(request);
                 request.setWriteTimeout(10*60*1000);
+                request.setReadTimeout(10*60000);
             }
         };
         drive = new Drive.Builder(transport, factory, initializer).setApplicationName("EasyDrive").build();
