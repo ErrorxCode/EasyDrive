@@ -54,7 +54,15 @@ public class EasyDrive {
                 .setTransport(transport)
                 .build()
                 .setRefreshToken(refreshToken);
-        drive = new Drive.Builder(transport, factory, credential).setApplicationName("EasyDrive").build();
+        
+        HttpRequestInitializer initializer = new HttpRequestInitializer() {
+            @Override
+            public void initialize(HttpRequest request) throws IOException {
+                credential.initialize(request);
+                request.setWriteTimeout(10*60*1000);
+            }
+        };
+        drive = new Drive.Builder(transport, factory, initializer).setApplicationName("EasyDrive").build();
     }
 
     /**
